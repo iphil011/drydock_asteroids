@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{AD4087F6-6913-6070-9BC9-43ED9655C988}") = "Asteroids_minigame", "Assembly-CSharp.csproj", "{50889F6C-A06C-CE96-E12E-A20E2154E01E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50889F6C-A06C-CE96-E12E-A20E2154E01E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50889F6C-A06C-CE96-E12E-A20E2154E01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50889F6C-A06C-CE96-E12E-A20E2154E01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50889F6C-A06C-CE96-E12E-A20E2154E01E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
