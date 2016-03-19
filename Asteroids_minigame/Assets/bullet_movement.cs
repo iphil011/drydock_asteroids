@@ -15,7 +15,7 @@ public class bullet_movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if (transform.position.x > 15 || transform.position.x < -15 || transform.position.y > 15 || transform.position.y < -15) {
+		if (transform.position.x < transform.position.x -Camera.main.orthographicSize * Camera.main.aspect*1.5 || transform.position.x > transform.position.x +Camera.main.orthographicSize * Camera.main.aspect*1.5 || transform.position.y < transform.position.y -Camera.main.orthographicSize*1.5 || transform.position.y > transform.position.y +Camera.main.orthographicSize*1.5) {
             Destroy(this.gameObject);
         }
     }
@@ -23,7 +23,6 @@ public class bullet_movement : MonoBehaviour {
         if (other.tag == "Asteroid") {
             Destroy(gameObject);
             Destroy(other.gameObject);
-
         }
     }
 }

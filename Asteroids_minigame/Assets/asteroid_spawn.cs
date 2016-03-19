@@ -5,7 +5,7 @@ public class asteroid_spawn : MonoBehaviour {
     private int side;
     private int type;
     public int level;
-    private int timer;
+    private float timer;
     public GameObject asteroid1;
     public GameObject asteroid2;
     public GameObject asteroid3;
@@ -18,6 +18,7 @@ public class asteroid_spawn : MonoBehaviour {
     public GameObject player;
     // Use this for initialization
     void Start () {
+		Camera.main.transform.position = new Vector3 (transform.position.x, transform.position.y, -10.0f);
         timer = 0;
         player = Instantiate(Player, transform.position, gameObject.GetComponent<Transform>().rotation) as GameObject;
         player.GetComponent<movement>().spawner = gameObject;
@@ -26,15 +27,15 @@ public class asteroid_spawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        Vector2 up = new Vector2(Random.Range(transform.position.x - 11, transform.position.x + 11), transform.position.y + 11);
-        Vector2 down = new Vector2(Random.Range(transform.position.x -11, transform.position.x + 11), transform.position.y -11);
-        Vector2 left = new Vector2(transform.position.x -11, Random.Range(transform.position.y -11, transform.position.y + 11));
-        Vector2 right = new Vector2(transform.position.x + 11, Random.Range(transform.position.y -11, transform.position.y + 11));
+		Vector2 up = new Vector2(Random.Range(transform.position.x -Camera.main.orthographicSize * Camera.main.aspect, transform.position.x +Camera.main.orthographicSize * Camera.main.aspect), transform.position.y +Camera.main.orthographicSize);
+		Vector2 down = new Vector2(Random.Range(transform.position.x -Camera.main.orthographicSize * Camera.main.aspect, transform.position.x +Camera.main.orthographicSize * Camera.main.aspect), transform.position.y -Camera.main.orthographicSize);
+		Vector2 left = new Vector2(transform.position.x -Camera.main.orthographicSize * Camera.main.aspect, Random.Range(transform.position.y -Camera.main.orthographicSize, transform.position.y + Camera.main.orthographicSize));
+		Vector2 right = new Vector2(transform.position.x + Camera.main.orthographicSize * Camera.main.aspect, Random.Range(transform.position.y -Camera.main.orthographicSize, transform.position.y + Camera.main.orthographicSize));
         timer++;
         if (!debug)
-        if (timer == 35)
+        if (timer > 35+35/level)
         {
-            timer = 0;
+			timer = Random.Range (0, 5+level/2);;
             side = Random.Range(0, 4);
             type = Random.Range(0, 4);
             if (type == 0)

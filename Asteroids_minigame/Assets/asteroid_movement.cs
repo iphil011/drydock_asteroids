@@ -10,6 +10,7 @@ public class asteroid_movement : MonoBehaviour {
     private Vector2 aim;
     private int timer;
     public GameObject spawner;
+
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
@@ -36,7 +37,7 @@ public class asteroid_movement : MonoBehaviour {
         timer++;
         //Debug.Log(aim);
         transform.Rotate(new Vector3(0, 0, rotate));
-        if (transform.position.x < spawner.transform.position.x-12 || transform.position.x > spawner.transform.position.x + 12 || transform.position.y < spawner.transform.position.y - 12 || transform.position.y > spawner.transform.position.y + 12) {
+		if (transform.position.x < transform.position.x -Camera.main.orthographicSize * Camera.main.aspect*1.5 || transform.position.x > transform.position.x +Camera.main.orthographicSize * Camera.main.aspect*1.5 || transform.position.y < transform.position.y -Camera.main.orthographicSize*1.5 || transform.position.y > transform.position.y +Camera.main.orthographicSize*1.5) {
             Destroy(gameObject);
         }
     }
